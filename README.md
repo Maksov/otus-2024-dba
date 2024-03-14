@@ -8,16 +8,55 @@
 #### product
 Описание: таблица товаров
 
-| Поле             | Описание                     | Пример                                 |
-|------------------|------------------------------|----------------------------------------|
-| id               | номер записи                 | 1                                      |
-| name             | наименование                 | Ноутбук                                |
-| description      | описание                     | Аллюминий, Win 10, SSD 500Gb, ОЗУ 16Gb |
-| sku			   | арктикул					  | 4567809                                |
-| stock_quantity   | количество товара на складе  | 5                                      |
-| category_id      | катгория                     | 1                                      |
-| supplier_id      | поставщик                    | 1                                      |
-| manufacturer_id  | производитель                | 1                                      | 
+| Поле             | Описание                     | Тип           | Пример                                 |
+|------------------|------------------------------|---------------|----------------------------------------|
+| id               | номер записи                 | int           | 1                                      |
+| name             | наименование                 | varchar(50)   | Ноутбук                                |
+| description      | описание                     | varchar(255)  | Аллюминий, Win 10, SSD 500Gb, ОЗУ 16Gb |
+| sku			   | арктикул					  | varchar(10)   | 4567809                                |
+| stock_quantity   | количество товара на складе  | int           | 5                                      |
+| category_id      | катгория                     | int           | 1                                      |
+| supplier_id      | поставщик                    | int           | 1                                      |
+| manufacturer_id  | производитель                | int           | 1                                      | 
+
+```javascript
+function test(){
+	console.log("Hello world!");
+}
+ 
+(function(){
+    var box = function(){
+        return box.fn.init();
+    };
+
+    box.prototype = box.fn = {
+        init : function(){
+            console.log('box.init()');
+
+			return this;
+        },
+
+		add : function(str){
+			alert("add", str);
+
+			return this;
+		},
+
+		remove : function(str){
+			alert("remove", str);
+
+			return this;
+		}
+    };
+    
+    box.fn.init.prototype = box.fn;
+    
+    window.box =box;
+})();
+
+var testBox = box();
+testBox.add("jQuery").remove("jQuery");
+```
 
 #### category
 Описание: таблица категорий товара
