@@ -10,7 +10,7 @@
 
 | Поле             | Описание                     | Тип           | Пример                                 |
 |------------------|------------------------------|---------------|----------------------------------------|
-| id               | номер записи                 | int           | 1                                      |
+| id               | номер записи                 | serial        | 1                                      |
 | name             | наименование                 | varchar(50)   | Ноутбук                                |
 | description      | описание                     | varchar(255)  | Аллюминий, Win 10, SSD 500Gb, ОЗУ 16Gb |
 | sku			   | арктикул					  | varchar(10)   | 4567809                                |
@@ -19,43 +19,17 @@
 | supplier_id      | поставщик                    | int           | 1                                      |
 | manufacturer_id  | производитель                | int           | 1                                      | 
 
-```javascript
-function test(){
-	console.log("Hello world!");
-}
- 
-(function(){
-    var box = function(){
-        return box.fn.init();
-    };
-
-    box.prototype = box.fn = {
-        init : function(){
-            console.log('box.init()');
-
-			return this;
-        },
-
-		add : function(str){
-			alert("add", str);
-
-			return this;
-		},
-
-		remove : function(str){
-			alert("remove", str);
-
-			return this;
-		}
-    };
-    
-    box.fn.init.prototype = box.fn;
-    
-    window.box =box;
-})();
-
-var testBox = box();
-testBox.add("jQuery").remove("jQuery");
+```sql
+create table product (
+	id serial PRIMARY KEY,
+	name varchar(50),
+	description varchar(255),
+	sku varchar(10),
+	stock_quantity int,
+	category_id int,
+	supplier_id int,
+	manufacturer_id int
+);
 ```
 
 #### category
